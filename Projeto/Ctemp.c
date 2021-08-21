@@ -3,64 +3,18 @@
 #include <locale.h>
 
 // Definindo variáveis
-// -------------------
+// |------------------|
 int opcao;
 float tc, tf, tk;
 
-// Converter Celsius para Fahrenheit
-// |--------------------------------|
-void Celsius_Fahrenheit(){
-    printf("\nDigite a temperatura em Celsius:");
-    scanf("%f", &tc);
-    tf = ((9*tc)/5)+32;
-    printf("\nA temperatura em Fahrenheit é:%2.f", tf);
-    
-}
-
-// Converter Celsius para Kelvin
-// |----------------------------|
-void Celsius_Kelvin(){
-    printf("\nDigite a temperatura em Celcius:");
-    scanf("%f", &tc);
-    tk = tc+273.15;
-    printf("\nA temperatura em Kelvin é:%2.f", tk);
-}
-
-// Converter Fahrenheit para Celsius
-// |--------------------------------|
-void Fahrenheit_Celsius(){
-    printf("\nDigite a temperatura em Fahrenheit:");
-    scanf("%f", &tf);
-    tc = ((tf-32)*5)/9;
-    printf("\nA temperatura em Celsius é:%2.f", tc);
-}
-
-// Converter Fahrenheit para Kelvin
-// |-------------------------------|
-void Fahrenheit_Kelvin(){
-    printf("\nDigite a temperatura em Fahrenheit:");
-    scanf("%f", &tf);
-    tk = (((tf-32)*5)/9) + 273.15;
-    printf("\nA temperatura em Kelvin é:%2.f", tk);
-}
-
-// Converter Kelvin para Celsius
-// |----------------------------|
-void Kelvin_Celsius(){
-    printf("\nDigite a temperatura em Kelvin:");
-    scanf("%f",&tk);
-    tc = tk-273.15;
-    printf("\nA temperatura em Celsius é:%2.f", tc);  
-}
-
-// Converter Kelvin para Fahrenheit
-// |-------------------------------|
-void Kelvin_Fahrenheit(){
-    printf("\nDigite a temperatura em Kelvin");
-    scanf("%f", &tk);
-    tf = (((tk-273.15)*9)/5) + 32;
-    printf("\nA temperatura em Fahrenheit é:%2.f", tf);
-}
+// Chamando as funções
+// |------------------|
+void Kelvin_Celsius();
+void Kelvin_Fahrenheit();
+void Fahrenheit_Celsius();
+void Fahrenheit_Kelvin();
+void Celsius_Fahrenheit();
+void Celsius_Kelvin();
 
 // Algoritmo principal
 // |------------------|
@@ -70,9 +24,10 @@ void main(){
     // |----------------|
     setlocale(LC_ALL,"");
 
-    // Imprimindo
+    // Saudações
     // |--------|
-    printf("\n\t|·Bem-Vindo ao Ctemp·|\n");
+    printf("\n\t|·Bem-Vindo ao·|\n");
+    PrintCtemp();
 
     // Menu de opções
     // |------------|
@@ -84,7 +39,7 @@ void main(){
     printf("\n4- Fahrenheit para Kelvin");
     printf("\n5- Kelvin para Celsius");
     printf("\n6- Kelvin para Fahrenheit");
-    printf("\n------------------------------\n>");
+    printf("\n------------------------------\n> ");
     scanf("%d", &opcao);
 
     switch(opcao){
@@ -110,4 +65,73 @@ void main(){
             printf("Opção inválida!");
             break;
     }
+    return 0;
 }
+
+/*-----------------------------------------------------*/
+void PrintCtemp(){
+    printf("     ___  _                          \n");
+    printf("    / __\\| |_  ___  _ __ ___   _ __  \n");
+    printf("   / /   | __|/ _ \\| '_ ` _ \\ | '_ \\ \n");
+    printf("  / /___ | |_|  __/| | | | | || |_) |\n");
+    printf("  \\____/  \\__|\\___||_| |_| |_|| .__/ \n");
+    printf("                              |_|    \n");
+}
+
+// Converter Kelvin para Fahrenheit
+// |-------------------------------|
+void Kelvin_Fahrenheit(){
+    printf("\nDigite a temperatura em Kelvin: ");
+    scanf("%f", &tk);
+    tf = (((tk-273.15)*9)/5) + 32;
+    printf("\nA temperatura em Fahrenheit é:%2.f", tf);
+}
+
+// Converter Kelvin para Celsius
+// |----------------------------|
+void Kelvin_Celsius(){
+    printf("\nDigite a temperatura em Kelvin: ");
+    scanf("%f",&tk);
+    tc = tk-273.15;
+    printf("\nA temperatura em Celsius é:%2.f", tc);
+}
+
+// Converter Fahrenheit para Kelvin
+// |-------------------------------|
+void Fahrenheit_Kelvin(){
+    printf("\nDigite a temperatura em Fahrenheit: ");
+    scanf("%f", &tf);
+    tk = (((tf-32)*5)/9) + 273.15;
+    printf("\nA temperatura em Kelvin é:%2.f", tk);
+}
+
+// Converter Fahrenheit para Celsius
+// |--------------------------------|
+void Fahrenheit_Celsius(){
+    printf("\nDigite a temperatura em Fahrenheit: ");
+    scanf("%f", &tf);
+    tc = ((tf-32)*5)/9;
+    printf("\nA temperatura em Celsius é:%2.f", tc);
+}
+
+// Converter Celsius para Kelvin
+// |----------------------------|
+void Celsius_Kelvin(){
+    printf("\nDigite a temperatura em Celsius: ");
+    scanf("%f", &tc);
+    tk = tc+273.15;
+    printf("\nA temperatura em Kelvin é:%2.f", tk);
+}
+
+// Converter Celsius para Fahrenheit
+// |--------------------------------|
+void Celsius_Fahrenheit(){
+    printf("\nDigite a temperatura em Celsius: ");
+    scanf("%f", &tc);
+    tf = ((9*tc)/5)+32;
+    printf("\nA temperatura em Fahrenheit é:%2.f", tf);
+
+}
+
+
+
