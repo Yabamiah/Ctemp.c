@@ -6,6 +6,8 @@
 // |------------------|
 int opcao;
 float tc, tf, tk;
+char reniciarPrograma;
+
 
 // Chamando as funções
 // |------------------|
@@ -15,6 +17,7 @@ void Fahrenheit_Celsius();
 void Fahrenheit_Kelvin();
 void Celsius_Fahrenheit();
 void Celsius_Kelvin();
+void ClearScreen();
 
 // Algoritmo principal
 // |------------------|
@@ -29,43 +32,52 @@ void main(){
     printf("\n\t|·Bem-Vindo ao·|\n");
     PrintCtemp();
 
-    // Menu de opções
-    // |------------|
-    printf("\nEscolha uma das opções abaixo:");
-    printf("\n------------------------------");
-    printf("\n1- Celsius para Fahrenheit");
-    printf("\n2- Celsius para Kelvin");
-    printf("\n3- Fahrenheit para Celsius");
-    printf("\n4- Fahrenheit para Kelvin");
-    printf("\n5- Kelvin para Celsius");
-    printf("\n6- Kelvin para Fahrenheit");
-    printf("\n------------------------------\n> ");
-    scanf("%d", &opcao);
+    do{
+        // Menu de opções
+        // |------------|
+        printf("\nEscolha uma das opções abaixo:");
+        printf("\n------------------------------");
+        printf("\n1- Celsius para Fahrenheit");
+        printf("\n2- Celsius para Kelvin");
+        printf("\n3- Fahrenheit para Celsius");
+        printf("\n4- Fahrenheit para Kelvin");
+        printf("\n5- Kelvin para Celsius");
+        printf("\n6- Kelvin para Fahrenheit");
+        printf("\n------------------------------\n> ");
+        scanf("%d", &opcao);
 
-    switch(opcao){
-        case 1:
-            Celsius_Fahrenheit();
-            break;
-        case 2:
-            Celsius_Kelvin();
-            break;
-        case 3:
-            Fahrenheit_Celsius();
-            break;
-        case 4:
-            Fahrenheit_Kelvin();
-            break;
-        case 5:
-            Kelvin_Celsius();
-            break;
-        case 6:
-            Kelvin_Fahrenheit();
-            break;
-        default:
-            printf("Opção inválida!");
-            break;
-    }
-    return 0;
+        switch(opcao){
+            case 1:
+                Celsius_Fahrenheit();
+                break;
+            case 2:
+                Celsius_Kelvin();
+                break;
+            case 3:
+                Fahrenheit_Celsius();
+                break;
+            case 4:
+                Fahrenheit_Kelvin();
+                break;
+            case 5:
+                Kelvin_Celsius();
+                break;
+            case 6:
+                Kelvin_Fahrenheit();
+                break;
+            default:
+                printf("Opção inválida!");
+                break;
+        }
+
+        // Dando uma quebra
+        printf("\n\nDeseja fazer outra conversão(S/N)? ");
+        scanf(" %c", &reniciarPrograma);
+
+        ClearScreen();
+    }while(reniciarPrograma == 'S');
+
+    printf("-----Fim do programa-----");
 }
 
 /*-----------------------------------------------------*/
@@ -130,8 +142,8 @@ void Celsius_Fahrenheit(){
     scanf("%f", &tc);
     tf = ((9*tc)/5)+32;
     printf("\nA temperatura em Fahrenheit é:%2.f", tf);
-
 }
 
-
-
+void ClearScreen(){
+    printf("\x1B[2J\x1B[H");
+}
